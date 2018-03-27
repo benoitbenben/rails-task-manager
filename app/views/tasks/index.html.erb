@@ -13,17 +13,30 @@
 #   <br><br>
 # <% end %> -->
 
-<%= link_to 'Create task', new_task_path %>
-
-
 <!-- une seule ligne -->
 <% @tasks.each do |task| %>
   <input type="checkbox" <%= "checked" if task.completed == true %> >
   <label><%= link_to task.title, task_path(task) %></label>
   <br><br>
+  <% end %>
 
 
+
+<%= link_to 'Create task', new_task_path %>
+
+<!-- - O Bistro Quai (4 stars)
+- Naantais (2 stars) -->
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <strong>
+        <%= link_to task.title, task_path(task) %>
+      </strong>
+      (<%= task.completed %> )
+      -
       <%= link_to 'edit', edit_task_path(task) %>
       <%= link_to 'delete', task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
-
+    </li>
   <% end %>
+</ul>
