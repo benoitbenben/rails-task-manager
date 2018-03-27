@@ -2,11 +2,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'pages#home'
 
-# READ : as a user i can list all tasks
+  # READ : as a user i can list all tasks
   get 'tasks', to: 'tasks#index'
   get 'tasks/:id', to: 'tasks#show', as: :task
-
-end
 
   # # HTTP_VERB URL, to: 'CTRL#ACTION'
   # get 'contact', to: 'pages#contact'
@@ -28,3 +26,4 @@ end
   # delete 'restaurants/:id', to: 'restaurants#destroy'
 
   # # resources :restaurants #, only: [:index, :show]
+end
